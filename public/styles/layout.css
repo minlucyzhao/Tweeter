@@ -3,6 +3,16 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+
+
+ /* NOTE this is REALLY USEFUL - PLACE IT IN THE MAIN CSS FILE - SHOWS ALL THE CSS BOX 
+
+ * {
+  border: solid 2px red;
+}
+*/
+
+s
 html {
   box-sizing: border-box;
 }
@@ -15,6 +25,7 @@ html {
  */
 
 body {
+  font-family: 'Roboto Condensed', sans-serif;
   margin: 0;
   color: #244751;
   background-color: #eee;
@@ -23,3 +34,12 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+main {
+  /* width: 800px; */
+  background: white;
+  padding: 3%;
+  margin: 80px 15% 0 15%;
+  /* overflow: auto; */
+  height: 100vh;
+}

@@ -1,0 +1,24 @@
+#nav-bar {
+    position: fixed; /*Set the navbar to fixed position*/
+    top: 0; /* Position the navbar at the top of the page */
+    height: 80px;
+    width: 100%;
+    background-color: #00a087;
+    color: #e8fdff;
+    padding: 0 2em;
+}
+
+#nav-bar img.logo {
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+
+#nav-bar span.header {
+    float: left;
+    font-size: 200%;
+    /* Line-height depends on the font-size */
+    line-height: 2.5; 
+}
+

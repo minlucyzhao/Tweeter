@@ -1,0 +1,26 @@
+.new-tweet {
+    border-radius: 10px;
+    width: 75%;
+    margin: auto;
+    background-color: #eeeeee;
+    padding: 3%;
+    box-shadow: 5px 5px #d4d3d3;
+}
+
+.new-tweet h2 {
+    padding-left: 10px;
+    padding-bottom: 20px;
+    border-bottom: solid 1px black;
+}
+
+.tweet-input {
+    display: inline-block;
+    padding: 3px;
+    width: 99%;
+    height: 100px;
+}
+
+.counter {
+    float: right;
+    font-style: italic;
+}
