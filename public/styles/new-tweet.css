@@ -24,3 +24,7 @@
     float: right;
     font-style: italic;
 }
+
+.setRed {
+    color: red;
+}
