@@ -1,7 +1,7 @@
 .new-tweet {
     border-radius: 10px;
-    width: 75%;
-    margin: auto;
+    width: 50%;
+    margin: auto auto 20px auto;
     background-color: #eeeeee;
     padding: 3%;
     box-shadow: 5px 5px #d4d3d3;
@@ -27,4 +27,53 @@
 
 .setRed {
     color: red;
+}
+
+
+
+.tweet {
+    border: 2px solid lightgrey;
+    border-radius: 10px;
+    width: 55.5%;
+    margin: auto auto 20px auto;
+    background-color: white;
+    opacity: 0.75;
+    /* padding: 2%; */
+}
+
+.tweet:hover {
+    opacity: 1.2;
+}
+
+header {
+    display: flex;
+    background-color: #eeeeee;
+    border-radius: 10px 10px 0 0;
+}
+
+header img {
+    margin: 10px;
+}
+
+header h1 {
+    line-height: 1;
+}
+
+header p {
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.tweet-body {
+    margin-left: 10px;
+    height: 100px;
+}
+
+.tweet-body h4 {
+    text-align: center;
+    line-height: 5;
+}
+
+footer p {
+    margin-left: 20px;
 }
