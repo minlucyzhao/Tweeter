@@ -1,3 +1,4 @@
+/* Tweet Input */
 .new-tweet {
     border-radius: 10px;
     width: 50%;
@@ -30,7 +31,7 @@
 }
 
 
-
+/* Article */
 .tweet {
     border: 2px solid lightgrey;
     border-radius: 10px;
@@ -45,6 +46,7 @@
     opacity: 1.2;
 }
 
+/* Article Header */
 header {
     display: flex;
     background-color: #eeeeee;
@@ -55,25 +57,28 @@ header img {
     margin: 10px;
 }
 
-header h1 {
+header .title {
     line-height: 1;
 }
 
-header p {
+header .userId {
     margin-left: auto;
     margin-right: 10px;
 }
 
+/* Article Body */
 .tweet-body {
     margin-left: 10px;
     height: 100px;
 }
 
-.tweet-body h4 {
+.tweet-body .userTweet {
     text-align: center;
     line-height: 5;
+
 }
 
-footer p {
+/* Article Footer */
+footer .daysAgo {
     margin-left: 20px;
 }
