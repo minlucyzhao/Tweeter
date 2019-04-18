@@ -41,5 +41,5 @@ main {
   padding: 3%;
   margin: 80px 15% 0 15%;
   /* overflow: auto; */
-  height: 100vh;
+  height: 100%;
 }

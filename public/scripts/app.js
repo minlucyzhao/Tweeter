@@ -115,9 +115,51 @@ const data = [
         $("#tweets-container").prepend(createTweetElement(tweet));
     }
   }
-  
-  
+
   renderTweets(data);
+
+
+//--------------------------------------------------------------------------------------
+//SEND DATA TO SERVER (WITH AJAX)
+//--------------------------------------------------------------------------------------
+$(function() {
+    //event.preventDefault() prevents form to submit through HTTP upon click
+    //need information from the tweet
+    //.seralize() to turn form data into query string
+    //send to server
+  let $button = $("#tweet-button");
+  let $tweet = $(".tweet-input");
+
+    // console.log('Runs here first');
+    // $button.preventDefault(); 
+
+    $button.on('click', function (event) {
+        event.preventDefault();
+        let newTweet = $tweet.serialize(); //get the value of text-area and seralize form data into query string before sending to server
+
+        $.ajax({
+            type: 'POST',
+            url: '/tweets',
+            data: newTweet,
+            success: function() {
+                alert("posted to server successfully!")
+                //add renderTweet() here to add new tweet
+            }
+        })
+        // $button.preventDefault(); 
+        // console.log('Button clicked, performing ajax call...');
+        
+        // $.ajax('more-posts.html', { 
+        //     method: 'GET' 
+        // })
+        // .then(function (renderTweets(tweets)) {
+        // console.log('Success: ', morePostsHtml);
+        // // $button.replaceWith(morePostsHtml);
+        // console.log("AJAX COMPLETE");
+        // });
+    });
+});
+
 
 
 //   var $tweet = createTweetElement(tweetData);
