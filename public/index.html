@@ -30,45 +30,38 @@
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
+      <button class="compose">Compose</button>
     </nav>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+      
         <section class="new-tweet">
-            <h2>Compose Tweet</h2>
+          <div class="error"></div>
 
-            <form method="POST" action="/tweets">
-              <textarea class="tweet-input" name="text" placeholder="What are you humming about?"></textarea>
-              <input id="tweet-button" type="submit" value="Tweet">
-              <span class="counter">140</span>
-            </form>
-
-          </section>
-
+          <h2>Compose Tweet</h2>
+          <form class="tweet-form" method="POST" action="/tweets">
+            <textarea class="tweet-input" name="text" placeholder="What are you humming about?"></textarea>
+            <input id="tweet-button" type="submit" value="Tweet">
+            <span class="counter">140</span>
+          </form>
+        </section>
+          
           <section id="tweets-container">
-
-
-
-            <article class="tweet">
-
+            <!-- <article class="tweet">
               <header>
                 <img src="images/amy.png" alt="">
                 <h1 class="title">Unicorn Cat</h1>
                 <p class="userId">@AmyFields</p>
               </header>
-
               <div class="tweet-body">
               <h4 class="userTweet">"Little tweet here"</h4>
               </div>
-
               <footer>
                 <p class="daysAgo">10 days ago</p>
               </footer>
-
             </article>
-            
-
-
+             -->
           </section>
     </main>
 

@@ -30,6 +30,27 @@
     color: red;
 }
 
+.success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    line-height: 50px;
+    padding-left: 10px;
+}
+
+.warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+    line-height: 50px;
+    padding-left: 10px;
+}
+
+.error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    line-height: 50px;
+    padding-left: 10px;
+}
+
 
 /* Article */
 .tweet {
