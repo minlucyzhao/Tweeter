@@ -88,15 +88,15 @@ const data = [
     //set how data variable should be added in html
     let tweetTemplate = 
             `<header>
-                <img src="${image}"/>
-                <h1 class="title">${name}</h1>
-                <p class="userId">${handle}</p>
+                <img src="${escape(image)}"/>
+                <h1 class="title">${escape(name)}</h1>
+                <p class="userId">${escape(handle)}</p>
             </header>
             <div class="tweet-body">
-                <h4 class="userTweet">${tweet}</h4>
+                <h4 class="userTweet">${escape(tweet)}</h4>
             </div>
             <footer>
-                <p class="daysAgo">${date}</p>
+                <p class="daysAgo">${escape(date)}</p>
             </footer>`
 
     //append the tweetTemplate onto html
@@ -104,23 +104,22 @@ const data = [
 
     return newTweet;
   }
- 
 
 //--------------------------------------------------------------------------------------
 //RENDER TWEETS
 //--------------------------------------------------------------------------------------
   function renderTweets(tweets) {
-    //   $("#tweets-container").empty();
+      $("#tweets-container").empty();
       for (let tweet of tweets) {
         $("#tweets-container").prepend(createTweetElement(tweet));
     }
   }
 
-  renderTweets(data);
-
-
 //--------------------------------------------------------------------------------------
-//SEND DATA TO SERVER (WITH AJAX)
+//TAKE NEW TWEET INPUT AND ADD IT TO SERVER (http://localhost:8080/tweets)
+//After this runs, the server-side (tweets.js) takes it in and sets random username, 
+//photo etc.. and saves it into the database with the new tweet input you typed.
+//REFERENCE: tweetsRoutes.post(...)
 //--------------------------------------------------------------------------------------
 $(function() {
     //event.preventDefault() prevents form to submit through HTTP upon click
@@ -133,19 +132,33 @@ $(function() {
     // console.log('Runs here first');
     // $button.preventDefault(); 
 
+    //it's better to use FORM and SUBMIT as action (try it this way as well)
     $button.on('click', function (event) {
         event.preventDefault();
         let newTweet = $tweet.serialize(); //get the value of text-area and seralize form data into query string before sending to server
+        let tweetContent = $tweet.val();
+        //error handling...
+        if (tweetContent.length === 0) {
+            $(".error").slideDown(80).text("Error: There is no text, please write something. :)");
+        } else if (tweetContent.length > 140) {
+            $(".error").slideDown(80).text("Error: Your tweet is too long. Max length is 140 characters. :D");
+            // alert("Your tweet content is too long. Let's try not to exceed 140 characters. :)");
+        } else {
+            $.ajax({
+                type: 'POST',
+                url: '/tweets',
+                data: newTweet,
+                success: function() {
+                    // alert("posted to server successfully!");
+                    // console.log(newTweet);
+                    $tweet.val(null);
+                    loadTweets();
+                    $(".error").slideUp();
+                    //add renderTweet() here to add new tweet
+                }
+            });
+        }
 
-        $.ajax({
-            type: 'POST',
-            url: '/tweets',
-            data: newTweet,
-            success: function() {
-                alert("posted to server successfully!")
-                //add renderTweet() here to add new tweet
-            }
-        })
         // $button.preventDefault(); 
         // console.log('Button clicked, performing ajax call...');
         
@@ -161,9 +174,43 @@ $(function() {
 });
 
 
+//--------------------------------------------------------------------------------------
+//FETCH TWEETS FROM SERVER AND RENDER TO DOM/PASS IT TO WEBPAGE (WITH AJAX)
+//REFERENCE: tweetsRoutes.get(...) in tweets.js
+//--------------------------------------------------------------------------------------
+const loadTweets = function() {
+    $.ajax({
+        type:'GET',
+        url: '/tweets',
+        datatype: 'json', //what does this do? convert the file into json directly?
+        success: renderTweets //this is a callback
+        
+    })
+}
+
+//--------------------------------------------------------------------------------------
+//TOGGLE COMPOSE BUTTON
+//--------------------------------------------------------------------------------------
+$(".compose").click(function(event) {
+    $(".new-tweet").slideToggle(200);
+    $(".textarea").focus();
+  });
+
+
+//--------------------------------------------------------------------------------------
+//ESCAPE FUNCTION
+//--------------------------------------------------------------------------------------
+function escape(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 
 //   var $tweet = createTweetElement(tweetData);
 //   // Test / driver code (temporary)
 //   console.log($tweet); // to see what it looks like
 //   $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+
+    loadTweets();
 });
