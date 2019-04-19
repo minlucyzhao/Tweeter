@@ -23,3 +23,7 @@
     line-height: 2.5; 
 }
 
+.compose {
+    margin: 25px 60px 0 0;
+    float: right;
+}
