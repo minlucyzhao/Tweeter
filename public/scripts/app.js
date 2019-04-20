@@ -104,7 +104,6 @@ const data = [
 
     return newTweet;
   }
- 
 
 //--------------------------------------------------------------------------------------
 //RENDER TWEETS
@@ -123,26 +122,30 @@ const data = [
 //REFERENCE: tweetsRoutes.post(...)
 //--------------------------------------------------------------------------------------
 $(function() {
-    //event.preventDefault() prevents form to submit through HTTP upon click
-    //need information from the tweet
-    //.seralize() to turn form data into query string
-    //send to server
   let $button = $("#tweet-button");
   let $tweet = $(".tweet-input");
 
+<<<<<<< HEAD
     // console.log('Runs here first');
     // $button.preventDefault(); 
 
+=======
+>>>>>>> feature/mongodb
     //it's better to use FORM and SUBMIT as action (try it this way as well)
     $button.on('click', function (event) {
         event.preventDefault();
         let newTweet = $tweet.serialize(); //get the value of text-area and seralize form data into query string before sending to server
         let tweetContent = $tweet.val();
+<<<<<<< HEAD
         //error handling...
+=======
+        //error handling
+>>>>>>> feature/mongodb
         if (tweetContent.length === 0) {
             $(".error").slideDown(80).text("Error: There is no text, please write something. :)");
         } else if (tweetContent.length > 140) {
             $(".error").slideDown(80).text("Error: Your tweet is too long. Max length is 140 characters. :D");
+<<<<<<< HEAD
             // alert("Your tweet content is too long. Let's try not to exceed 140 characters. :)");
         } else {
             $.ajax({
@@ -171,6 +174,24 @@ $(function() {
         // // $button.replaceWith(morePostsHtml);
         // console.log("AJAX COMPLETE");
         // });
+=======
+            // alert("Your tweet content is too long. Let's try not to exceed 140 characters. :)";
+        } else {  
+          $.ajax({
+            type: 'POST',
+            url: '/tweets',
+            data: newTweet,
+            success: function() {
+                // alert("posted to server successfully!");
+                // console.log(newTweet);
+                $tweet.val(null);
+                loadTweets();
+                $(".error").slideUp();
+                $('.counter').text("140");
+            }
+        });
+      }
+>>>>>>> feature/mongodb
     });
 });
 
@@ -206,7 +227,10 @@ function escape(str) {
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> feature/mongodb
 
 //   var $tweet = createTweetElement(tweetData);
 //   // Test / driver code (temporary)
