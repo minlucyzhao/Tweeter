@@ -1,28 +1,10 @@
-/*
- * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
- * https://css-tricks.com/international-box-sizing-awareness-day/
- * Do not modify these two selectors, please
- */
 
-
- /* NOTE this is REALLY USEFUL - PLACE IT IN THE MAIN CSS FILE - SHOWS ALL THE CSS BOX
-
- * {
-  border: solid 2px red;
-}
-*/
-
-s
 html {
   box-sizing: border-box;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
-
-/*
- * Global layout stuff
- */
 
 body {
   font-family: 'Roboto Condensed', sans-serif;
@@ -31,15 +13,9 @@ body {
   background-color: #eee;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-
 main {
-  /* width: 800px; */
   background: white;
   padding: 3%;
   margin: 80px 15% 0 15%;
-  /* overflow: auto; */
   height: 100%;
 }

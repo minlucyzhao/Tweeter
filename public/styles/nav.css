@@ -24,6 +24,9 @@
 }
 
 .compose {
-    margin: 25px 60px 0 0;
+    margin: 20px 10% 0 0;
     float: right;
+    border-radius: 10px;
+    line-height: 2.2;
+    width: 125px;
 }
