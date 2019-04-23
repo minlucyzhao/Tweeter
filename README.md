@@ -16,6 +16,6 @@ This repository is the starter code for the project: Students will fork and clon
 - Express
 - Node 5.10.x or above
 
-![](images/screenshot1.png")
+https://github.com/minlucyzhao/Tweeter/blob/master/public/images/screenshot1.png
 
-![](images/screenshot2.png")
+https://github.com/minlucyzhao/Tweeter/blob/master/public/images/screenshot2.png

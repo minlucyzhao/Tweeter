@@ -6,6 +6,7 @@
     background-color: #eeeeee;
     padding: 3%;
     box-shadow: 5px 5px #d4d3d3;
+    display: none;
 }
 
 .new-tweet h2 {
